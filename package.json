@@ -1,0 +1,35 @@
+{
+  "name": "eslint-plugin-unary-minus",
+  "version": "0.0.0",
+  "description": "A typescript-eslint plugin restricting unary negation to numbers.",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "license": "MIT",
+  "author": "Sam Estep",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "peerDependencies": {
+    "@typescript-eslint/utils": "^6",
+    "typescript": "^5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^6",
+    "@typescript-eslint/rule-tester": "^6",
+    "prettier": "^3",
+    "prettier-plugin-organize-imports": "^3",
+    "vitest": "^0.33"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "prettier --check .",
+    "test": "vitest run --no-threads"
+  }
+}
