@@ -28,7 +28,7 @@ export const rule: Rule = createRule({
         const type = services.getTypeAtLocation(node.argument);
         if (
           type.flags &
-          (ts.TypeFlags.Any | ts.TypeFlags.Number | ts.TypeFlags.NumberLiteral)
+          (ts.TypeFlags.Any | ts.TypeFlags.NumberLike | ts.TypeFlags.BigIntLike)
         )
           return;
         context.report({
