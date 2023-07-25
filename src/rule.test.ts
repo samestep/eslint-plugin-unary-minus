@@ -18,11 +18,12 @@ ruleTester.run("unary-minus", rule, {
   valid: [
     "-42",
     "-42n",
-    "(x: number) => -x",
-    "(x: any) => -x",
-    "(x: 1 | 2) => -x",
+    "(a: number) => -a",
+    "(a: any) => -a",
+    "(a: 1 | 2) => -a",
   ],
   invalid: [
-    { code: "(x: string) => -x", errors: [{ messageId: "unary-minus" }] },
+    { code: "(a: string) => -a", errors: [{ messageId: "unary-minus" }] },
+    { code: "(a: {}) => -a", errors: [{ messageId: "unary-minus" }] },
   ],
 });
