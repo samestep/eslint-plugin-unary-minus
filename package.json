@@ -9,6 +9,7 @@
   ],
   "license": "MIT",
   "author": "Sam Estep",
+  "repository": "samestep/eslint-plugin-unary-minus",
   "type": "module",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
