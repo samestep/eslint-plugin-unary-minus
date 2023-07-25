@@ -1,4 +1,4 @@
-# eslint-plugin-unary-minus
+# eslint-plugin-unary-minus ![npm](https://img.shields.io/npm/v/eslint-plugin-unary-minus)
 
 A [typescript-eslint][] plugin restricting [unary negation][] to numbers.
 
