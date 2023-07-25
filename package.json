@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-unary-minus",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A typescript-eslint plugin restricting unary negation to numbers.",
   "keywords": [
     "eslint",
@@ -10,7 +10,6 @@
   "license": "MIT",
   "author": "Sam Estep",
   "repository": "samestep/eslint-plugin-unary-minus",
-  "type": "module",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "files": [
