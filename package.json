@@ -27,11 +27,12 @@
     "@typescript-eslint/rule-tester": "^6",
     "prettier": "^3",
     "prettier-plugin-organize-imports": "^3",
+    "rimraf": "^5",
     "vitest": "^0.33"
   },
   "scripts": {
-    "build": "tsc",
     "lint": "prettier --check .",
+    "prepack": "rimraf dist && tsc",
     "test": "vitest run --no-threads"
   }
 }
