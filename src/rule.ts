@@ -36,9 +36,8 @@ export const rule: Rule = createRule({
           !checker.isTypeAssignableTo(
             services.getTypeAtLocation(node.argument),
             checker.getUnionType([
-              // introduced in TypeScript v5.1
-              checker.getNumberType(),
-              checker.getBigIntType(),
+              checker.getNumberType(), // first exposed in TypeScript v5.1
+              checker.getBigIntType(), // first added in TypeScript v5.1
             ]),
           )
         )
