@@ -1,4 +1,4 @@
-# eslint-plugin-unary-minus [![npm](https://img.shields.io/npm/v/eslint-plugin-unary-minus)](https://www.npmjs.com/package/eslint-plugin-unary-minus)
+# eslint-plugin-unary-minus [![npm](https://img.shields.io/npm/v/eslint-plugin-unary-minus)](https://www.npmjs.com/package/eslint-plugin-unary-minus) [![license](https://img.shields.io/github/license/samestep/eslint-plugin-unary-minus)](LICENSE) [![Build](https://github.com/samestep/eslint-plugin-unary-minus/actions/workflows/build.yml/badge.svg)](https://github.com/samestep/eslint-plugin-unary-minus/actions/workflows/build.yml)
 
 A [typescript-eslint][] plugin restricting [unary negation][] to numbers.
 
