@@ -1,5 +1,4 @@
 import { ESLintUtils, TSESLint } from "@typescript-eslint/utils";
-import * as ts from "typescript";
 
 const createRule = ESLintUtils.RuleCreator(
   () => "https://npmjs.com/package/eslint-plugin-unary-minus",
@@ -25,13 +24,19 @@ export const rule: Rule = createRule({
       UnaryExpression(node) {
         if (node.operator !== "-") return;
         const services = ESLintUtils.getParserServices(context);
-        const type = services.getTypeAtLocation(node.argument);
+        const checker = services.program.getTypeChecker();
+        // https://github.com/microsoft/TypeScript/issues/9879
+        const internal = checker as any;
         if (
-          type.flags &
-          (ts.TypeFlags.Any | ts.TypeFlags.NumberLike | ts.TypeFlags.BigIntLike)
+          !internal.isTypeAssignableTo(
+            services.getTypeAtLocation(node.argument),
+            internal.getUnionType([
+              checker.getNumberType(),
+              checker.getBigIntType(),
+            ]),
+          )
         )
-          return;
-        context.report({ messageId: "unary-minus", node });
+          context.report({ messageId: "unary-minus", node });
       },
     };
   },

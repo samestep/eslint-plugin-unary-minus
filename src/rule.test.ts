@@ -19,6 +19,8 @@ ruleTester.run("unary-minus", rule, {
     "-42",
     "-42n",
     "(a: number) => -a",
+    "(a: bigint) => -a",
+    "(a: number | bigint) => -a",
     "(a: any) => -a",
     "(a: 1 | 2) => -a",
   ],
