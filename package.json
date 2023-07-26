@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-unary-minus",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A typescript-eslint plugin restricting unary negation to numbers.",
   "keywords": [
     "eslint",
@@ -21,7 +21,7 @@
   },
   "peerDependencies": {
     "@typescript-eslint/parser": "^6",
-    "typescript": "^5"
+    "typescript": "^5.1"
   },
   "devDependencies": {
     "@typescript-eslint/rule-tester": "^6",
