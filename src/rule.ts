@@ -12,7 +12,7 @@ export type Rule = TSESLint.RuleModule<
 >;
 
 export const rule: Rule = createRule({
-  name: "unary-minus",
+  name: "only-numbers",
   meta: {
     docs: { description: "Restrict unary negation to numbers." },
     messages: { "unary-minus": "Don't use unary negation on a non-number." },
@@ -31,10 +31,7 @@ export const rule: Rule = createRule({
           (ts.TypeFlags.Any | ts.TypeFlags.NumberLike | ts.TypeFlags.BigIntLike)
         )
           return;
-        context.report({
-          messageId: "unary-minus",
-          node: node.argument,
-        });
+        context.report({ messageId: "unary-minus", node });
       },
     };
   },

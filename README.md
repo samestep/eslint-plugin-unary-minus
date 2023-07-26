@@ -10,15 +10,15 @@ const f = (a: string) => -a; // OK
 const g = (a: {}) => -a; // also OK
 
 console.log(f("hi there")); // NaN
-console.log(g("hi there")); // NaN
+console.log(g({})); // NaN
 ```
 
-This ESLint plugin catches that sort of bug by checking that every usage of
+This [ESLint][] plugin catches that sort of bug by checking that every usage of
 unary negation has an argument with type assignable to `number | bigint`.
 
 ## Installation
 
-You'll first need to install [ESLint][eslint] and [typescript-eslint][]:
+You'll first need to install ESLint and typescript-eslint:
 
 ```sh
 npm i eslint @typescript-eslint/eslint-plugin --save-dev
@@ -27,7 +27,7 @@ npm i eslint @typescript-eslint/eslint-plugin --save-dev
 Next, install `eslint-plugin-unary-minus`:
 
 ```sh
-npm install eslint-plugin-unary-minus --save-dev
+npm i eslint-plugin-unary-minus --save-dev
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ Then add this rule under the rules section.
 ```json
 {
   "rules": {
-    "unary-minus": "error"
+    "unary-minus/only-numbers": "error"
   }
 }
 ```
