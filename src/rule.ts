@@ -1,4 +1,11 @@
 import { ESLintUtils, TSESLint } from "@typescript-eslint/utils";
+import * as ts from "typescript";
+
+interface TypeChecker extends ts.TypeChecker {
+  // https://github.com/microsoft/TypeScript/issues/9879
+  isTypeAssignableTo(source: ts.Type, target: ts.Type): boolean;
+  getUnionType(types: ts.Type[]): ts.Type;
+}
 
 const createRule = ESLintUtils.RuleCreator(
   () => "https://npmjs.com/package/eslint-plugin-unary-minus",
@@ -24,13 +31,12 @@ export const rule: Rule = createRule({
       UnaryExpression(node) {
         if (node.operator !== "-") return;
         const services = ESLintUtils.getParserServices(context);
-        const checker = services.program.getTypeChecker();
-        // https://github.com/microsoft/TypeScript/issues/9879
-        const internal = checker as any;
+        const checker = services.program.getTypeChecker() as TypeChecker;
         if (
-          !internal.isTypeAssignableTo(
+          !checker.isTypeAssignableTo(
             services.getTypeAtLocation(node.argument),
-            internal.getUnionType([
+            checker.getUnionType([
+              // introduced in TypeScript v5.1
               checker.getNumberType(),
               checker.getBigIntType(),
             ]),
