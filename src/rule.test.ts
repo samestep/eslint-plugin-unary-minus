@@ -16,6 +16,7 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("unary-minus", rule, {
   valid: [
+    "+42",
     "-42",
     "-42n",
     "(a: number) => -a",
